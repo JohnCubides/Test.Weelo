@@ -3,19 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Weelo", "Test.Weelo\Test.Weelo\Test.Weelo.csproj", "{1C28FF24-DE7B-4597-8130-6C7B4B61C690}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Weelo", "Test.Weelo\Test.Weelo\Test.Weelo.csproj", "{1C28FF24-DE7B-4597-8130-6C7B4B61C690}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Weelo.Domain", "Test.Weelo\Test.Weelo.Domain\Test.Weelo.Domain.csproj", "{F833F577-6EBE-4692-BF04-E9A1922E648F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Weelo.Domain", "Test.Weelo\Test.Weelo.Domain\Test.Weelo.Domain.csproj", "{F833F577-6EBE-4692-BF04-E9A1922E648F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Weelo.Infrastructure", "Test.Weelo\Test.Weelo.Infrastructure\Test.Weelo.Infrastructure.csproj", "{DD63C9DF-72DB-49B0-81E2-9F0B08A43D02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Weelo.Infrastructure", "Test.Weelo\Test.Weelo.Infrastructure\Test.Weelo.Infrastructure.csproj", "{DD63C9DF-72DB-49B0-81E2-9F0B08A43D02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Weelo.Persistence", "Test.Weelo\Test.Weelo.Persistence\Test.Weelo.Persistence.csproj", "{16F3B03F-4700-4D95-B178-D08F302D3AE6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Weelo.Persistence", "Test.Weelo\Test.Weelo.Persistence\Test.Weelo.Persistence.csproj", "{16F3B03F-4700-4D95-B178-D08F302D3AE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Weelo.Service", "Test.Weelo\Test.Weelo.Service\Test.Weelo.Service.csproj", "{DAC57A99-A755-49C1-905F-C2DFB20FF37F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Weelo.Service", "Test.Weelo\Test.Weelo.Service\Test.Weelo.Service.csproj", "{DAC57A99-A755-49C1-905F-C2DFB20FF37F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Weelo.Test.Integration", "Test.Weelo\Test.Weelo.Test.Integration\Test.Weelo.Test.Integration.csproj", "{B478B9B4-93E5-4622-A73C-BD4F4E311125}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Weelo.Test.Unit", "Test.Weelo\Test.Weelo.Test.Unit\Test.Weelo.Test.Unit.csproj", "{83EAEB95-B558-4DE5-800F-938CB8617A2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Weelo.Test.Unit", "Test.Weelo\Test.Weelo.Test.Unit\Test.Weelo.Test.Unit.csproj", "{83EAEB95-B558-4DE5-800F-938CB8617A2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		{DAC57A99-A755-49C1-905F-C2DFB20FF37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAC57A99-A755-49C1-905F-C2DFB20FF37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAC57A99-A755-49C1-905F-C2DFB20FF37F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B478B9B4-93E5-4622-A73C-BD4F4E311125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B478B9B4-93E5-4622-A73C-BD4F4E311125}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B478B9B4-93E5-4622-A73C-BD4F4E311125}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B478B9B4-93E5-4622-A73C-BD4F4E311125}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83EAEB95-B558-4DE5-800F-938CB8617A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83EAEB95-B558-4DE5-800F-938CB8617A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83EAEB95-B558-4DE5-800F-938CB8617A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
