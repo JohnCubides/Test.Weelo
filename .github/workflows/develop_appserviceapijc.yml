@@ -27,7 +27,7 @@ jobs:
         run: |
             dotnet tool install --global dotnet-ef
             dotnet tool restore
-            dotnet-ef database update -p Test.Weelo/Test.Weelo.Persistence/Test.Weelo.Persistence.csproj -c IdentityContext
+            dotnet-ef database update -p Test.Weelo/Test.Weelo.Persistence/Test.fdfWeelo.Persistence.csproj -c IdentityContext
 
 
       - name: Set up .NET Core
