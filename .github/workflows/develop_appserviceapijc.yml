@@ -22,6 +22,12 @@ jobs:
           files: 'Test.Weelo/Test.Weelo/appsettings.json'
         env:
           ConnectionStrings.IdentityConnection: ${{ secrets.IDENTITY_CONN_QA }}
+          
+      - name: Update database
+        run: |
+            dotnet tool install --global dotnet-ef
+            dotnet tool restore
+            dotnet-ef database update -p Test.Weelo/Test.Weelo.Persistence/Test.Weelo.Persistence.csproj -c IdentityContext
 
 
       - name: Set up .NET Core
