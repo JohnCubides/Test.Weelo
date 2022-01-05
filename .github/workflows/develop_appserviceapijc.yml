@@ -37,7 +37,7 @@ jobs:
       - name: App Settings Variable Substitution
         uses: microsoft/variable-substitution@v1
         with:
-          files: '${{env.DOTNET_ROOT}}/appsettings.json'
+          files: '${{env.DOTNET_ROOT}}/Test.Weelo/appsettings.json'
         env:
           ConnectionStrings.IdentityConnection: ${{ secrets.IDENTITY_CONN_QA }}
       
