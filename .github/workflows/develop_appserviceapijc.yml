@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Set up .NET Core
+      - name: dir
         run: ls
 
       - name: Set up .NET Core
@@ -44,6 +44,9 @@ jobs:
           files: '${{env.DOTNET_ROOT}}/Test.Weelo/appsettings.json'
         env:
           ConnectionStrings.IdentityConnection: ${{ secrets.IDENTITY_CONN_QA }}
+      
+      - name: dir2
+        run: ls
       
       - name: deploy entity framework core migrations
         uses: benday-inc/deploy-ef-core-migration@main
