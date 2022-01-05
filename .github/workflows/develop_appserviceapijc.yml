@@ -45,7 +45,7 @@ jobs:
       - name: deploy entity framework core migrations
         uses: benday-inc/deploy-ef-core-migration@main
         with: 
-            path_to_directory: '${{env.DOTNET_ROOT}}'
+            path_to_directory: '${{env.DOTNET_ROOT}}/build-output'
             migrations_dll: 'Test.Weelo.Persistence.dll'
             migrations_namespace: 'Test.Weelo.Persistence'
             startup_dll: 'Test.Weelo.dll'
