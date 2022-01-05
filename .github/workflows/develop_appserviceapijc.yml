@@ -16,6 +16,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: App Settings Variable Substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: '${{env.DOTNET_ROOT}}/Test.Weelo/appsettings.json'
+        env:
+          ConnectionStrings.Default: ${{ secrets.IDENTITY_CONN_QA }}
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
@@ -33,6 +40,13 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/Test.Weelo
+      
+      
+      - name: Update database
+        run: |
+            dotnet tool install --global dotnet-ef
+            dotnet tool restore
+            dotnet ef database update --context IdentityContext
 
   deploy:
     runs-on: windows-latest
