@@ -1,3 +1,4 @@
+
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
@@ -15,6 +16,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: dir
+        run: ls 
+        
+      - name: App Settings Variable Substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: 'Test.Weelo/Test.Weelo/appsettings.json'
+        env:
+          ConnectionStrings.IdentityConnection: ${{ secrets.IDENTITY_CONN_QA }}
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
@@ -24,15 +35,34 @@ jobs:
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
-
+        
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Test.Weelo
+        
+      - name: Test
+        run: |
+          dotnet test --no-restore --verbosity normal
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/Test.Weelo
+      
+      - name: dir2
+        run: ls C:\Users\runneradmin\AppData\Local\Microsoft\dotnet\Test.Weelo
+
+      - name: dir3
+        run: ls ${{env.DOTNET_ROOT}}
+      
+      - name: deploy entity framework core migrations
+        uses: benday-inc/deploy-ef-core-migration@main
+        with: 
+            path_to_directory: '${{env.DOTNET_ROOT}}/Test.Weelo'
+            migrations_dll: 'Test.Weelo.Persistence.dll'
+            migrations_namespace: 'Test.Weelo.Persistence'
+            startup_dll: 'Test.Weelo.dll'
+            dbcontext_class_name: 'IdentityContext'
 
   deploy:
     runs-on: windows-latest
