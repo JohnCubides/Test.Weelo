@@ -23,7 +23,7 @@ namespace Test.Weelo.Infrastructure.Extension
 
             app.UseSwaggerUI(setupAction =>
             {
-                setupAction.SwaggerEndpoint("/swagger/OpenAPISpecification/swagger.json", "Onion Architecture API");
+                setupAction.SwaggerEndpoint("/swagger/OpenAPISpecification/swagger.json", "Test Weelo API");
                 setupAction.RoutePrefix = "OpenAPI";
             });
         }

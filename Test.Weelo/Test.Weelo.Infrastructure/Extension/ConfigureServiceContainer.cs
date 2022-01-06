@@ -11,7 +11,6 @@ using System.Configuration;
 using System.IO;
 using System.Reflection;
 using Test.Weelo.Domain.Settings;
-using Test.Weelo.Infrastructure.Mapping;
 using Test.Weelo.Persistence;
 using Test.Weelo.Service.Contract;
 using Test.Weelo.Service.Implementation;
@@ -34,7 +33,7 @@ namespace Test.Weelo.Infrastructure.Extension
         {
             var mappingConfig = new MapperConfiguration(mc =>
             {
-                mc.AddProfile(new CustomerProfile());
+                
             });
             IMapper mapper = mappingConfig.CreateMapper();
             serviceCollection.AddSingleton(mapper);
@@ -63,14 +62,14 @@ namespace Test.Weelo.Infrastructure.Extension
                     "OpenAPISpecification",
                     new OpenApiInfo()
                     {
-                        Title = "Onion Architecture WebAPI",
+                        Title = "Test Weelo WebAPI",
                         Version = "1",
-                        Description = "Through this API you can access customer details",
+                        Description = "Through this API you can access Property details",
                         Contact = new OpenApiContact()
                         {
-                            Email = "amit.naik8103@gmail.com",
-                            Name = "Amit Naik",
-                            Url = new Uri("https://amitpnk.github.io/")
+                            Email = "john.cubides87@gmail.com",
+                            Name = "John Cubides",
+                            Url = new Uri("https://github.com/JohnCubides/Test.Weelo/")
                         },
                         License = new OpenApiLicense()
                         {
