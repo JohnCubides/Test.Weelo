@@ -19,6 +19,13 @@ jobs:
       
       - name: dir
         run: ls 
+        
+      - name: App Settings Variable Substitution
+        uses: microsoft/variable-substitution@v1
+        with:
+          files: 'Test.Weelo/Test.Weelo/appsettings.json'
+        env:
+          ConnectionStrings.IdentityConnection: ${{ secrets.IDENTITY_CONN_QA }}
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
@@ -37,13 +44,6 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/Test.Weelo
-      
-      - name: App Settings Variable Substitution
-        uses: microsoft/variable-substitution@v1
-        with:
-          files: '${{env.DOTNET_ROOT}}/Test.Weelo/appsettings.json'
-        env:
-          ConnectionStrings.IdentityConnection: ${{ secrets.IDENTITY_CONN_QA }}
       
       - name: dir2
         run: ls C:\Users\runneradmin\AppData\Local\Microsoft\dotnet\Test.Weelo
