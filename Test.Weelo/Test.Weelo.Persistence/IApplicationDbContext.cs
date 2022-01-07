@@ -6,7 +6,7 @@ namespace Test.Weelo.Persistence
 {
     public interface IApplicationDbContext
     {
-        DbSet<OwnerEntity> Owners { get; set; }
+        DbSet<OwnerEntity> Owner { get; set; }
         DbSet<PropertyEntity> Property { get; set; }
         DbSet<PropertyImageEntity> PropertyImage { get; set; }
         DbSet<PropertyTraceEntity> PropertyTrace { get; set; }
