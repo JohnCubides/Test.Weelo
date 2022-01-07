@@ -23,7 +23,7 @@ namespace Test.Weelo.Infrastructure.Extension
              IConfiguration configuration, IConfigurationRoot configRoot)
         {
             serviceCollection.AddDbContext<ApplicationDbContext>(options =>
-                   options.UseSqlServer(configuration.GetConnectionString("OnionArchConn") ?? configRoot["ConnectionStrings:OnionArchConn"]
+                   options.UseSqlServer(configuration.GetConnectionString("ApplpicationWeeloConn") ?? configRoot["ConnectionStrings:ApplpicationWeeloConn"]
                 , b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
 
@@ -128,7 +128,7 @@ namespace Test.Weelo.Infrastructure.Extension
             serviceCollection.AddHealthChecks()
                 .AddDbContextCheck<ApplicationDbContext>(name: "Application DB Context", failureStatus: HealthStatus.Degraded)
                 .AddUrlGroup(new Uri(appSettings.ApplicationDetail.ContactWebsite), name: "My personal website", failureStatus: HealthStatus.Degraded)
-                .AddSqlServer(configuration.GetConnectionString("OnionArchConn"));
+                .AddSqlServer(configuration.GetConnectionString("ApplpicationWeeloConn"));
 
             serviceCollection.AddHealthChecksUI(setupSettings: setup =>
             {

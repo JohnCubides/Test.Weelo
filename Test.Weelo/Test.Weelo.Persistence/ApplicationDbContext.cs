@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Test.Weelo.Domain.Entities;
 
 namespace Test.Weelo.Persistence
 {
@@ -14,6 +15,11 @@ namespace Test.Weelo.Persistence
         {
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
+
+        public DbSet<OwnerEntity> Owners { get; set; }
+        public DbSet<PropertyEntity> Property { get; set; }
+        public DbSet<PropertyImageEntity> PropertyImage { get; set; }
+        public DbSet<PropertyTraceEntity> PropertyTrace { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
