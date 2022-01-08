@@ -35,6 +35,7 @@ namespace Test.Weelo.Infrastructure.Extension
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new OwnerProfile());
+                mc.AddProfile(new PropertyProfile());
             });
             IMapper mapper = mappingConfig.CreateMapper();
             serviceCollection.AddSingleton(mapper);
