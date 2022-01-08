@@ -11,6 +11,7 @@ using System.Configuration;
 using System.IO;
 using System.Reflection;
 using Test.Weelo.Domain.Settings;
+using Test.Weelo.Infrastructure.Mapping;
 using Test.Weelo.Persistence;
 using Test.Weelo.Service.Contract;
 using Test.Weelo.Service.Implementation;
@@ -33,7 +34,7 @@ namespace Test.Weelo.Infrastructure.Extension
         {
             var mappingConfig = new MapperConfiguration(mc =>
             {
-                
+                mc.AddProfile(new OwnerProfile());
             });
             IMapper mapper = mappingConfig.CreateMapper();
             serviceCollection.AddSingleton(mapper);
