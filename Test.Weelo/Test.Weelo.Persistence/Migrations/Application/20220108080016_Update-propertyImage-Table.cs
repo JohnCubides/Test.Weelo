@@ -7,7 +7,7 @@ namespace Test.Weelo.Persistence.Migrations.Application
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "file",
+                name: "File",
                 table: "PropertyImage",
                 type: "nvarchar(max)",
                 nullable: false,
@@ -17,7 +17,7 @@ namespace Test.Weelo.Persistence.Migrations.Application
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "file",
+                name: "File",
                 table: "PropertyImage");
         }
     }

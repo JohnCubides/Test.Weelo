@@ -20,7 +20,7 @@ namespace Test.Weelo.Domain.Entities
         public int IdProperty { get; set; }
 
         [Required]
-        public string file { get; set; }
+        public string File { get; set; }
 
         public bool Enabled { get; set; }
     }

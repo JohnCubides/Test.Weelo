@@ -26,9 +26,25 @@ namespace Test.Weelo.Test.Unit.Api
             Mock<IMediator> mediator = new Mock<IMediator>();
             mediator.Setup(med => med.Send(It.IsAny<CreatePropertyCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(propertyEntity);
 
-            PropertyController ownerController = new PropertyController(mediator.Object, mapper.Object);
+            PropertyController PropertyController = new PropertyController(mediator.Object, mapper.Object);
 
-            var result = await ownerController.Create(It.IsAny<CreatePropertyCommand>());
+            var result = await PropertyController.Create(It.IsAny<CreatePropertyCommand>());
+            Assert.IsInstanceOf<IActionResult>(result);
+        }
+
+        [Test]
+        public async Task Put_UpdatePRoceProperty()
+        {
+
+            PropertyEntity propertyEntity = new PropertyEntity() { IdProperty = 1 };
+            
+
+            Mock<IMediator> mediator = new Mock<IMediator>();
+            mediator.Setup(med => med.Send(It.IsAny<UpdatePricePropertyCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(1);
+            Mock<IMapper> mapper = new Mock<IMapper>();
+            PropertyController PropertyController = new PropertyController(mediator.Object, mapper.Object);
+
+            var result = await PropertyController.UpdatePrice(1,25000);
             Assert.IsInstanceOf<IActionResult>(result);
         }
     }
