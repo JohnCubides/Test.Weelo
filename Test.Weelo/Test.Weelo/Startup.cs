@@ -66,11 +66,9 @@ namespace Test.Weelo
 
             services.AddFeatureManagement();
 
-            services.AddSwaggerGen(c => { c.EnableAnnotations(); });
+            services.AddSwaggerGen(c => { c.EnableAnnotations();});
 
-            services.AddMvc().AddNewtonsoftJson(options =>
-                  options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-                );
+            services.AddDocumentationApi();
         }
 
 
