@@ -33,7 +33,11 @@
     Domain in center and building layer top of it. You can call it as Domain-centric Architecture too.
 
 ### Reference
-
+* [It's all the same (Domain centeric architecture) - Mark Seemann](https://blog.ploeh.dk/2013/12/03/layers-onions-ports-adapters-its-all-the-same/)
+* [Onion Architecture by Jeffrey Palermo](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/)
+* [Clean Architecture by Robert C. Martin (Uncle Bob)
+](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+* [Hexagonal Architecture by Dr. Alistair Cockburn](https://alistair.cockburn.us/hexagonal+architecture)
 * [Onion Architecture - Amit Naik](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
 
 ## About The Project
