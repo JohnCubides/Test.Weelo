@@ -10,8 +10,8 @@ using Test.Weelo.Persistence;
 namespace Test.Weelo.Persistence.Migrations.Application
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220107043233_Create-Entities")]
-    partial class CreateEntities
+    [Migration("20220112160700_Create-Initial-Entities")]
+    partial class CreateInitialEntities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,10 @@ namespace Test.Weelo.Persistence.Migrations.Application
 
                     b.Property<bool>("Enabled")
                         .HasColumnType("bit");
+
+                    b.Property<string>("File")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("IdProperty")
                         .HasColumnType("int");

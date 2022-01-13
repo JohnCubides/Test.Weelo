@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Annotations;
+using System;
 using System.Threading.Tasks;
 using Test.Weelo.Infrastructure.ViewModel;
 using Test.Weelo.Service.Features.OwnerFeatures.Commands;
@@ -23,10 +22,19 @@ namespace Test.Weelo.Controllers
 
         [HttpPost]
         [SwaggerResponse(200, Type = typeof(OwnerModel))]
+        [SwaggerResponse(400, Type = typeof(string))]
+        [SwaggerOperation(Summary = "Create Owner")]
         public async Task<IActionResult> Create(CreateOwnerCommand command)
         {
-            OwnerModel owner = _mapper.Map<OwnerModel>(await Mediator.Send(command)); 
-            return Ok(owner);
+            try
+            {
+                OwnerModel owner = _mapper.Map<OwnerModel>(await Mediator.Send(command));
+                return Ok(owner);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
