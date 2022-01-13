@@ -17,20 +17,20 @@
 * [Onion Architecture](#Onion-Architecture)
 * [reference](#reference)
 * [About the Project](#about-the-project)
+* [CI/CD](#CI/CD)
 * [Project description](#project-description)
   <!-- * [Built With](#built-with) -->
 * [Getting Started](#getting-started)
-* [CI/CD](#CI/CD)
 * [Contact](#contact)
 <!-- * [Acknowledgements](#acknowledgements) -->
 
 ## Onion Architecture
 
-Onion Architecture was introduced by Jeffrey Palermo to provide a better way to build applications in perspective of better testability, maintainability, and dependability on the infrastructures like databases and services
+- Onion Architecture was introduced by Jeffrey Palermo to provide a better way to build         applications in perspective of better testability, maintainability, and dependability on the infrastructures like databases and services
 
-Onion, Clean or Hexagonal architecture: it's all the same. Which is built on **Domain-Driven Desgin** approach.
+    Onion, Clean or Hexagonal architecture: it's all the same. Which is built on **Domain-Driven Desgin** approach.
 
-Domain in center and building layer top of it. You can call it as Domain-centric Architecture too.
+    Domain in center and building layer top of it. You can call it as Domain-centric Architecture too.
 
 ### Reference
 
@@ -40,109 +40,135 @@ Domain in center and building layer top of it. You can call it as Domain-centric
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-API solution which is built on Onion Architecture with all essential feature using .NET 5.
+- API solution which is built on Onion Architecture with all essential feature using .NET 5.
 
-![image](Docs/img/OnionArchitecture.png)
+    ![image](Docs/img/OnionArchitecture.png)
 
 ## Project description
 
-we can see that all the Layers are dependent only on the Core Layers
+- we can see that all the Layers are dependent only on the Core Layers
 
-<details>
-  <summary><b>Domain layer</b></summary>
-  <p>
-    Domain Layers (Core layer) is implemented in center and never depends on any other layer. Therefore, what we do is that we create interfaces to Persistence layer and these interfaces get implemented in the external layers. This is also known and DIP or Dependency Inversion Principle
-  </p>
-</details>
-<details>
-  <summary><b>Persistence layer</b></summary>
-  <p>
-    In Persistence layer where we implement reposistory design pattern. In our project, we have implement Entityframework which already implements a repository design pattern. DbContext will be UoW (Unit of Work) and each DbSet is the repository. This interacts with our database using dataproviders
-  </p>
-</details>
-<details>
-  <summary><b>Service layer</b></summary>
-  <p>
-    Service layer (or also called as Application layer) where we can implement business logic. For OLAP/OLTP process, we can implement CQRS design pattern. In our project, we have implemented CQRS design pattern on top of Mediator design pattern via MediatR libraries
-  </p>
-  <p>In case you want to implement email feature logic, we define an IMailService in the Service Layer.
-  Using DIP, it is easily possible to switch the implementations. This helps build scalable applications.
-  </p>
-</details>
-<details>
-  <summary><b>Infrastructure Layer</b></summary>
-  <p>
-    In this layer, we add our third party libraries like JWT Tokens Authentication or Serilog for logging, etc. so that all the third libraries will be in one place. In our project, we have implemented almost all important libraries, you can plug & play (add/remove) based on your project requirement in StartUp.cs file.
-  </p>
-</details>
-<details>
-  <summary><b>Presentation Layer</b></summary>
-  <p>
-    This can be WebApi or UI.
-  </p>
-</details>
+    <details>
+    <summary><b>Domain layer</b></summary>
+    <p>
+        Domain Layers (Core layer) is implemented in center and never depends on any other layer. Therefore, what we do is that we create interfaces to Persistence layer and these interfaces get implemented in the external layers. This is also known and DIP or Dependency Inversion Principle
+    </p>
+    </details>
+    <details>
+    <summary><b>Persistence layer</b></summary>
+    <p>
+        In Persistence layer where we implement reposistory design pattern. In our project, we have implement Entityframework which already implements a repository design pattern. DbContext will be UoW (Unit of Work) and each DbSet is the repository. This interacts with our database using dataproviders
+    </p>
+    </details>
+    <details>
+    <summary><b>Service layer</b></summary>
+    <p>
+        Service layer (or also called as Application layer) where we can implement business logic. For OLAP/OLTP process, we can implement CQRS design pattern. In our project, we have implemented CQRS design pattern on top of Mediator design pattern via MediatR libraries
+    </p>
+    <p>In case you want to implement email feature logic, we define an IMailService in the Service Layer.
+    Using DIP, it is easily possible to switch the implementations. This helps build scalable applications.
+    </p>
+    </details>
+    <details>
+    <summary><b>Infrastructure Layer</b></summary>
+    <p>
+        In this layer, we add our third party libraries like JWT Tokens Authentication or Serilog for logging, etc. so that all the third libraries will be in one place. In our project, we have implemented almost all important libraries, you can plug & play (add/remove) based on your project requirement in StartUp.cs file.
+    </p>
+    </details>
+    <details>
+    <summary><b>Presentation Layer</b></summary>
+    <p>
+        This can be WebApi or UI.
+    </p>
+    </details>
+
+
+## CI/CD
+- In the develop Branch i created a custom continuos integrations (CI) workflow in Github Actions.
+
+    This is default white application for ASP.NET Core API development, this workflow Build, test and deploy the API solution.
+
+    This workflow contains following features. 
+
+    - [x] App Settings Variable Substitution Identity Connection
+    - [x] Build Solution
+    - [x] Publish Solution
+    - [x] Run Test
+    - [x] Upload Artifact for deployment job
+    - [x] Deploy Entity Framework Migration IdentityContext (test-api-database.database.windows.net)
+    - [x] Deploy Entity Framework Migration ApplicationDbContext (test-api-database.database.windows.net)
+    - [x] Deploy To Azure Web App [Here you can sing up and testing API](https://appserviceapijc.azurewebsites.net/OpenAPI/index.html)
+        ![image](Docs/img/CI-CD.png)
+    - Build
+        ![image](Docs/img/CI-CD-Build.png)
+
+    - Deploy
+        ![image](Docs/img/CI-CD-Deploy.png)
+
+
+
+
 
 
 ## Getting Started
 
 ### Step 1: Clone this Repository and start solution in visual studio
-
-   ```Language
-$ git clone https://github.com/JohnCubides/Test.Weelo.git
-$ cd Test.Weelo/
-$ start Test.Weelo.sln
+- Run   
+```sh
+        $ git clone https://github.com/JohnCubides/Test.Weelo.git
+        $ cd Test.Weelo/
+        $ start Test.Weelo.sln
 ```
 
 
 ### Step 2: Project is ready
-
-![image](Docs/img/Step2.png)
+- 
+    ![image](Docs/img/Step2.png)
 
 ### Step 3: Configure connection string in appsettings.json
 
-Make sure to connect proper database
+- Make sure to connect proper database
 
-```json
-  "ConnectionStrings": {
-    "ApplpicationWeeloConn": "#{ConnectionString--ApiDb}#",
-    "IdentityConnection": "#{ConnectionString--ApiDb}#"
-  },
-```
+    ```json
+    "ConnectionStrings": {
+        "ApplpicationWeeloConn": "#{ConnectionString--ApiDb}#",
+        "IdentityConnection": "#{ConnectionString--ApiDb}#"
+    },
+    ```
 
-and connect to logging in DB or proer path
+    and connect to logging in DB or proer path
 
-```diff
-  "Serilog": {
-    "MinimumLevel": "Information",
-    "WriteTo": [
-      {
-        "Name": "RollingFile",
-        "Args": {
---          "pathFormat": "D:\\Logs\\log-{Date}.log",
-          "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}"
+    ```diff
+    "Serilog": {
+        "MinimumLevel": "Information",
+        "WriteTo": [
+        {
+            "Name": "RollingFile",
+            "Args": {
+    --          "pathFormat": "D:\\Logs\\log-{Date}.log",
+            "outputTemplate": "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level}] {Message}{NewLine}{Exception}"
+            }
+        },
+        {
+            "Name": "MSSqlServer",
+            "Args": {
+    --          "connectionString": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb;Integrated Security=True",
+            "sinkOptionsSection": {
+                "tableName": "Logs",
+                "schemaName": "EventLogging",
+                "autoCreateSqlTable": true
+            },
+            "restrictedToMinimumLevel": "Warning"
+            }
         }
-      },
-      {
-        "Name": "MSSqlServer",
-        "Args": {
---          "connectionString": "Data Source=(local)\\sqlexpress01;Initial Catalog=OnionDb;Integrated Security=True",
-          "sinkOptionsSection": {
-            "tableName": "Logs",
-            "schemaName": "EventLogging",
-            "autoCreateSqlTable": true
-          },
-          "restrictedToMinimumLevel": "Warning"
+        ],
+        "Properties": {
+        "Application": "Onion Architecture application"
         }
-      }
-    ],
-    "Properties": {
-      "Application": "Onion Architecture application"
-    }
-  },
-```
+    },
+    ```
 
 ### Step 4: Run Migrations in Microsoft SQL Server)
-
 
 - For running migration:
  
@@ -172,6 +198,7 @@ and connect to logging in DB or proer path
     ![Migration](Docs/img/Step5.png)
 - Run All Test in View or pres *(Ctrl+R, A)*
 ![Migration](Docs/img/Step5-1.png)
+
 
 ### Step 6: Build and run application
 
@@ -231,34 +258,6 @@ and connect to logging in DB or proer path
 
     + you can now use the endpoints
         ![image](Docs/img/Authentication-2.png)
-
-
-    
-    
-## CI/CD
-In the develop Branch i created a custom continuos integrations (CI) workflow in Github Actions.
-
-This is default white application for ASP.NET Core API development, this workflow Build, test and deploy the API solution
-This workflow contains following features. 
-
-- [x] App Settings Variable Substitution Identity Connection
-- [x] Build Solution
-- [x] Publish Solution
-- [x] Run Test
-- [x] Upload Artifact for deployment job
-- [x] Deploy Entity Framework Migration IdentityContext
-- [x] Deploy Entity Framework Migration ApplicationDbContext
-- [x] Deploy To Azure Web App
-    ![image](Docs/img/CI-CD.png)
-- Build
-    ![image](Docs/img/CI-CD-Build.png)
-
-- Deploy
-    ![image](Docs/img/CI-CD-Deploy.png)
-
-
-
-
 ## Contact
 
 Having any issues or troubles getting started? Drop a mail to john.cubides87@gmail.com or [Raise a Bug or Feature Request](https://github.com/JohnCubides/Test.Weelo/issues/new). Always happy to help.
