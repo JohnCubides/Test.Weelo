@@ -1,3 +1,16 @@
+[![Visual Studio Marketplace version](https://img.shields.io/badge/-OnionArchitecture-%23e2165e.svg)](https://marketplace.visualstudio.com/items?itemName=AmitNaik.OnionArchitecture)
+----
+# Test  Onion architecture with ASP.NET Core
+
+
+<br />
+<p align="center">
+  <a href="#">
+    <img src="Docs/img/OnionArchitecture_icon.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Onion Architecture</h3>
+
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
