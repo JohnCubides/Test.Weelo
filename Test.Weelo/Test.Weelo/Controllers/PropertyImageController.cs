@@ -2,6 +2,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System;
 using System.Threading.Tasks;
 using Test.Weelo.Service.Features.PropertyImageFeatures.Commands;
 
@@ -17,8 +18,14 @@ namespace Test.Weelo.Controllers
         [SwaggerOperation(Summary = "Add Image from property")]
         public async Task<IActionResult> Create(CreatePropertyImageCommand command)
         {
-            await Mediator.Send(command);
-            return NoContent();
+            try
+            {
+                await Mediator.Send(command);
+                return NoContent();
+            }catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

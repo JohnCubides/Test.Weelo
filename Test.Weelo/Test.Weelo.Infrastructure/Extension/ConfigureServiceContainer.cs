@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,12 @@ namespace Test.Weelo.Infrastructure.Extension
         }
 
 
+        public static void AddDocumentationApi(this IServiceCollection serviceCollection)
+        {
+            serviceCollection.AddMvc().AddNewtonsoftJson(options =>
+                  options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                );
+        }
 
         public static void AddSwaggerOpenAPI(this IServiceCollection serviceCollection)
         {
