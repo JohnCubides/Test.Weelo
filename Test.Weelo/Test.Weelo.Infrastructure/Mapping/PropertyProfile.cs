@@ -11,6 +11,7 @@ namespace Test.Weelo.Infrastructure.Mapping
         {
             CreateMap<CreatePropertyCommand, PropertyEntity>().ReverseMap();
             CreateMap<PropertyModel, PropertyEntity>().ReverseMap();
+            CreateMap<UpdatePropertyCommand, PropertyEntity>().ReverseMap();
         }
     }
 }

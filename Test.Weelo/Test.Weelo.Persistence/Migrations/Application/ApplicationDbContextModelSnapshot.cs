@@ -88,12 +88,12 @@ namespace Test.Weelo.Persistence.Migrations.Application
                     b.Property<bool>("Enabled")
                         .HasColumnType("bit");
 
-                    b.Property<int>("IdProperty")
-                        .HasColumnType("int");
-
-                    b.Property<string>("file")
+                    b.Property<string>("File")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdProperty")
+                        .HasColumnType("int");
 
                     b.HasKey("IdPropertyImage");
 

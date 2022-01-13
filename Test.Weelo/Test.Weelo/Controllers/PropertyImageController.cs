@@ -14,6 +14,7 @@ namespace Test.Weelo.Controllers
 
         [HttpPost]
         [SwaggerResponse(201)]
+        [SwaggerOperation(Summary = "Add Image from property")]
         public async Task<IActionResult> Create(CreatePropertyImageCommand command)
         {
             await Mediator.Send(command);

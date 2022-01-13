@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Test.Weelo.Persistence.Migrations.Application
 {
-    public partial class CreateEntities : Migration
+    public partial class CreateInitialEntities : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,6 +54,7 @@ namespace Test.Weelo.Persistence.Migrations.Application
                     IdPropertyImage = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IdProperty = table.Column<int>(type: "int", nullable: false),
+                    File = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Enabled = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>

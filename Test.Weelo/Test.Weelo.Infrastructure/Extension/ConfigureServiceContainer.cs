@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -100,6 +101,10 @@ namespace Test.Weelo.Infrastructure.Extension
                             },
                         }, new List<string>()
                     },
+                });
+
+                setupAction.CustomOperationIds(apiDesc => {
+                    return apiDesc.TryGetMethodInfo(out MethodInfo methodInfo) ? methodInfo.Name : null;
                 });
             });
 

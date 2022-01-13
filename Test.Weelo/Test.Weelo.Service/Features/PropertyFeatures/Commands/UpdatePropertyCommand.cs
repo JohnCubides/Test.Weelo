@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
 using MediatR;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using Test.Weelo.Domain.Entities;
@@ -10,8 +14,10 @@ using Test.Weelo.Service.Exceptions;
 
 namespace Test.Weelo.Service.Features.PropertyFeatures.Commands
 {
-    public class CreatePropertyCommand : IRequest<PropertyEntity>
+    public class UpdatePropertyCommand: IRequest<int>
     {
+        [JsonIgnore]
+        public int IdProperty { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -25,40 +31,41 @@ namespace Test.Weelo.Service.Features.PropertyFeatures.Commands
         public string CodeInternal { get; set; }
 
         public int Year { get; set; }
+        
         [Required]
         public int IdOwner { get; set; }
 
-        public class CreatePropertyCommandHandler : IRequestHandler<CreatePropertyCommand, PropertyEntity>
+        public class UpdatePropertyCommandHandler : IRequestHandler<UpdatePropertyCommand, int>
         {
             private readonly IApplicationDbContext _context;
             private readonly IMapper _mapper;
 
-            public CreatePropertyCommandHandler(IApplicationDbContext context, IMapper mapper)
+            public UpdatePropertyCommandHandler(IApplicationDbContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;
             }
 
-            public async Task<PropertyEntity> Handle(CreatePropertyCommand request, CancellationToken cancellationToken)
+            public async Task<int> Handle(UpdatePropertyCommand request, CancellationToken cancellationToken)
             {
                 try
                 {
                     PropertyEntity property = _mapper.Map<PropertyEntity>(request);
-                    _context.Property.Add(property);
+                    _context.Property.Update(property);
                     await _context.SaveChangesAsync();
 
-                    return property;
+                    return property.IdProperty;
                 }
                 catch(Exception ex)
                 {
-                    if (ex.InnerException != null)
+                    if(ex.InnerException != null)
                         throw new ApiException(ex.InnerException.Message);
 
                     throw new ApiException(ex.Message);
                 }
-                
             }
         }
+
 
     }
 }
