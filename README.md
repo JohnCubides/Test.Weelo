@@ -90,7 +90,7 @@
 ## CI/CD
 - In the develop Branch i created a custom continuos integrations (CI) and continuos deployment (CD)  workflow in Github Actions.
 
-    This is default white application for ASP.NET Core API development, this workflow Build, test and deploy the API solution.
+    This workflow Build, test and deploy the API solution.
 
     This workflow contains following features. 
 
